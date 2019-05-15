@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		C74DC36A228B3080004582D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DC369228B3080004582D3 /* AppDelegate.swift */; };
-		C74DC36C228B3080004582D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DC36B228B3080004582D3 /* ViewController.swift */; };
-		C74DC36F228B3080004582D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74DC36D228B3080004582D3 /* Main.storyboard */; };
 		C74DC371228B3081004582D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C74DC370228B3081004582D3 /* Assets.xcassets */; };
 		C74DC374228B3081004582D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74DC372228B3081004582D3 /* LaunchScreen.storyboard */; };
-		C74DC37F228B3081004582D3 /* QuakesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DC37E228B3081004582D3 /* QuakesTests.swift */; };
 		C74DC38A228B3081004582D3 /* QuakesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DC389228B3081004582D3 /* QuakesUITests.swift */; };
+		C7654E47228B329B00ED174E /* QuakeRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7654E46228B329B00ED174E /* QuakeRequester.swift */; };
+		C7B453E0228C923300C5755C /* UTQuakeRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B453DF228C923300C5755C /* UTQuakeRequester.swift */; };
+		C7B453E2228CC45C00C5755C /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B453E1228CC45C00C5755C /* MapView.storyboard */; };
+		C7B453E4228CC48200C5755C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B453E3228CC48200C5755C /* MapViewController.swift */; };
+		C7B453E7228CC6F900C5755C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B453E6228CC6F900C5755C /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,17 +38,19 @@
 /* Begin PBXFileReference section */
 		C74DC366228B3080004582D3 /* Quakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quakes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74DC369228B3080004582D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C74DC36B228B3080004582D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C74DC36E228B3080004582D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C74DC370228B3081004582D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C74DC373228B3081004582D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C74DC375228B3081004582D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C74DC37A228B3081004582D3 /* QuakesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuakesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C74DC37E228B3081004582D3 /* QuakesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakesTests.swift; sourceTree = "<group>"; };
 		C74DC380228B3081004582D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C74DC385228B3081004582D3 /* QuakesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuakesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74DC389228B3081004582D3 /* QuakesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakesUITests.swift; sourceTree = "<group>"; };
 		C74DC38B228B3081004582D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7654E46228B329B00ED174E /* QuakeRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeRequester.swift; sourceTree = "<group>"; };
+		C7B453DF228C923300C5755C /* UTQuakeRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTQuakeRequester.swift; sourceTree = "<group>"; };
+		C7B453E1228CC45C00C5755C /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
+		C7B453E3228CC48200C5755C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C7B453E6228CC6F900C5755C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7B453E7228CC6F900C5755C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,7 @@
 				C74DC37D228B3081004582D3 /* QuakesTests */,
 				C74DC388228B3081004582D3 /* QuakesUITests */,
 				C74DC367228B3080004582D3 /* Products */,
+				C7B453E5228CC6F900C5755C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,9 +103,10 @@
 		C74DC368228B3080004582D3 /* Quakes */ = {
 			isa = PBXGroup;
 			children = (
+				C7654E46228B329B00ED174E /* QuakeRequester.swift */,
 				C74DC369228B3080004582D3 /* AppDelegate.swift */,
-				C74DC36B228B3080004582D3 /* ViewController.swift */,
-				C74DC36D228B3080004582D3 /* Main.storyboard */,
+				C7B453E1228CC45C00C5755C /* MapView.storyboard */,
+				C7B453E3228CC48200C5755C /* MapViewController.swift */,
 				C74DC370228B3081004582D3 /* Assets.xcassets */,
 				C74DC372228B3081004582D3 /* LaunchScreen.storyboard */,
 				C74DC375228B3081004582D3 /* Info.plist */,
@@ -110,8 +117,8 @@
 		C74DC37D228B3081004582D3 /* QuakesTests */ = {
 			isa = PBXGroup;
 			children = (
-				C74DC37E228B3081004582D3 /* QuakesTests.swift */,
 				C74DC380228B3081004582D3 /* Info.plist */,
+				C7B453DF228C923300C5755C /* UTQuakeRequester.swift */,
 			);
 			path = QuakesTests;
 			sourceTree = "<group>";
@@ -123,6 +130,14 @@
 				C74DC38B228B3081004582D3 /* Info.plist */,
 			);
 			path = QuakesUITests;
+			sourceTree = "<group>";
+		};
+		C7B453E5228CC6F900C5755C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7B453E6228CC6F900C5755C /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +246,7 @@
 			files = (
 				C74DC374228B3081004582D3 /* LaunchScreen.storyboard in Resources */,
 				C74DC371228B3081004582D3 /* Assets.xcassets in Resources */,
-				C74DC36F228B3080004582D3 /* Main.storyboard in Resources */,
+				C7B453E2228CC45C00C5755C /* MapView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C74DC36C228B3080004582D3 /* ViewController.swift in Sources */,
 				C74DC36A228B3080004582D3 /* AppDelegate.swift in Sources */,
+				C7654E47228B329B00ED174E /* QuakeRequester.swift in Sources */,
+				C7B453E4228CC48200C5755C /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C74DC37F228B3081004582D3 /* QuakesTests.swift in Sources */,
+				C7B453E0228C923300C5755C /* UTQuakeRequester.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +309,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C74DC36D228B3080004582D3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C74DC36E228B3080004582D3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C74DC372228B3081004582D3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
