@@ -96,8 +96,8 @@ extension MapViewModelController {
         let depth: CLLocationDistance
 
         init (queryResponseFeature feature: QuakeRequester.QueryResponseFeature) {
-            coordinate = CLLocationCoordinate2D(latitude: feature.geometry?.coordinates?[0] ?? 0,
-                                                longitude: feature.geometry?.coordinates?[1] ?? 0)
+            coordinate = CLLocationCoordinate2D(latitude: feature.geometry?.coordinates?[1] ?? 0,
+                                                longitude: feature.geometry?.coordinates?[0] ?? 0)
             depth = feature.geometry?.coordinates?[2] ?? 0
         }
     }

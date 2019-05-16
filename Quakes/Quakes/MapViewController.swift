@@ -20,21 +20,32 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
-        modelController.getLatestEvents { (events, error) in
-            events?.event?.forEach{ event in print(event) }
-        }
+        initializeMapView()
+        getEvents()
     }
     
+    /// Sets the mapView properties to desired initial
+    fileprivate func initializeMapView() {
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+
+    /// Fetch events from the webservice and display on map.
+    fileprivate func getEvents() {
+        modelController.getLatestEvents {
+            (events, error) in
+            if let quakes = events?.event {
+                print("Adding \(quakes.count) events")
+                DispatchQueue.main.async {
+                    self.mapView.addAnnotations(quakes)
+                }
+            }
+        }
+    }
+}
+
+// ----------------------------------------------------------------------
+// MARK: - MKMapViewDelegate Support
+
+    extension MapViewController: MKMapViewDelegate {
 
 }
