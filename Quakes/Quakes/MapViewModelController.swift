@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
 class MapViewModelController {
 
@@ -35,6 +36,7 @@ class MapViewModelController {
 
 extension MapViewModelController {
 
+    /// Contains a list of `SeismicEvents` retrieved from the webservice.
     class EventList {
         let event: [SeismicEvent]?
         let generated: Date?
@@ -47,7 +49,8 @@ extension MapViewModelController {
     }
 
 
-    class SeismicEvent : CustomStringConvertible {
+    /// A seismic event detected by the FDSN and retrieved from the webservice.,
+    class SeismicEvent : NSObject, MKAnnotation {
         let magnitude: Double?
         let place: String?
         let time: Date?
@@ -68,10 +71,23 @@ extension MapViewModelController {
             location = EventLocation(queryResponseFeature: feature)
         }
 
-        var description: String {
+        // ----------------------------------------------------------------------
+        // MARK: - CustomStringConvertable
+        override var description: String {
             let descPlace = place ?? "Unknown"
             let descMag = magnitude ?? 0.0
             return "\(descMag): \(descPlace)"
+        }
+
+        // ----------------------------------------------------------------------
+        // MARK: - MKAnnotation
+        var coordinate: CLLocationCoordinate2D {
+            return location?.coordinate ?? kCLLocationCoordinate2DInvalid
+        }
+
+        var subtitle: String? {
+            let subtitle = type?.description ?? "Unknown"
+            return subtitle
         }
     }
 
@@ -86,7 +102,7 @@ extension MapViewModelController {
         }
     }
 
-    enum EventType {
+    enum EventType : CustomStringConvertible {
         case earthquake
 
 
@@ -97,6 +113,13 @@ extension MapViewModelController {
         /// - Returns: Equivalent `EventType`.
         static func decode(string: String?) -> EventType? {
             return .earthquake
+        }
+
+        var description: String {
+            switch self {
+            case .earthquake:
+                return "Earthquake"
+             }
         }
     }
 }

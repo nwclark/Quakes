@@ -11,6 +11,10 @@ import MapKit
 
 class MapViewController: UIViewController {
 
+
+    @IBOutlet weak var mapView: MKMapView!
+    
+    /// Model controller associated with this view.
     lazy var modelController = MapViewModelController()
 
     override func viewDidLoad() {
