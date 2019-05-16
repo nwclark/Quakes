@@ -11,7 +11,6 @@ import MapKit
 
 class MapViewController: UIViewController {
 
-
     @IBOutlet weak var mapView: MKMapView!
     
     /// Model controller associated with this view.
@@ -26,7 +25,7 @@ class MapViewController: UIViewController {
     
     /// Sets the mapView properties to desired initial
     fileprivate func initializeMapView() {
-
+        self.mapView.delegate = self
     }
 
     /// Fetch events from the webservice and display on map.
@@ -47,5 +46,15 @@ class MapViewController: UIViewController {
 // MARK: - MKMapViewDelegate Support
 
     extension MapViewController: MKMapViewDelegate {
+
+        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            if let event = view.annotation as? MapViewModelController.SeismicEvent {
+                print("\(event.place)")
+            }
+        }
+
+        func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+
+        }
 
 }
