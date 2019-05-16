@@ -12,16 +12,15 @@ import Foundation
 /// Docs: https://earthquake.usgs.gov/fdsnws/event/1/
 class QuakeRequester {
 
-
     /// Earthquake webservice API endpoint
     fileprivate let queryEndpoint = "https://earthquake.usgs.gov/fdsnws/event/1/query"
 
+    /// Common parameters always included in query requests.
     fileprivate let baseQueryItems = [URLQueryItem(name: "format", value: "geojson")]
 
     fileprivate let defaultSession = URLSession(configuration: .default)
 
     fileprivate let secondsInADay: TimeInterval = 24 * 60 * 60
-
 
     /// Formats dates to ISO8601 specs required by webservice.
     fileprivate let dateFormatter: ISO8601DateFormatter = {
@@ -36,8 +35,8 @@ class QuakeRequester {
     ///
     /// - Parameters:
     ///     - completion: completion handler
-    ///         - response: response object from webservice
-    ///         - error: errors encountered while processing request
+    ///     - response: response object from webservice
+    ///     - error: errors encountered while processing request
     func getLastDaysEvents(_ completion: @escaping (_ response: QueryResponse?, _ error: Error?) -> Void) {
         var queryParams = baseQueryItems
 
@@ -79,8 +78,6 @@ class QuakeRequester {
         dataTask.resume()
     }
 
-
-
     struct RequestOptions {
         let startDate: Date
         let endDate: Date
@@ -105,9 +102,7 @@ class QuakeRequester {
                 return "snow_avalanche"
             }
         }
-
     }
-
 }
 
 // ----------------------------------------------------------------------
@@ -115,6 +110,9 @@ class QuakeRequester {
 
 extension QuakeRequester {
 
+
+    /// Datastructure matching the query response from the server.
+    /// "type": "FeatureCollection
     struct QueryResponse : Codable {
         let type: String?
         let metadata: QueryResponseMetadata?
@@ -133,6 +131,7 @@ extension QuakeRequester {
         let count: Int?
     }
 
+    /// Datastructure matching "type": "Feature".
     struct QueryResponseFeature : Codable {
         let type: String?
         let properties: QueryResponseFeatureProperties?
@@ -140,6 +139,7 @@ extension QuakeRequester {
         let id: String?
     }
 
+    /// Datastructure matching "Feature" properties.
     struct QueryResponseFeatureProperties : Codable {
         let mag: Double?
         let place: String?

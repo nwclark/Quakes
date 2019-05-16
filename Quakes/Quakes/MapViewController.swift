@@ -11,10 +11,15 @@ import MapKit
 
 class MapViewController: UIViewController {
 
+    lazy var modelController = MapViewModelController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
+        modelController.getLatestEvents { (events, error) in
+            events?.event?.forEach{ event in print(event) }
+        }
     }
     
 
