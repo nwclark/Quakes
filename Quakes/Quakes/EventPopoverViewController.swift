@@ -10,18 +10,19 @@ import UIKit
 
 class EventPopoverViewController: UIViewController {
 
+    // ----------------------------------------------------------------------
+    // MARK: - IBOutlets
+
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var magnitudeLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
-    @IBOutlet weak var closeButton: UIButton!
 
+    // ----------------------------------------------------------------------
+    // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.closeButton.addTarget(self, action: #selector(EventPopoverViewController.closeButtonPressed), for: .touchDown)
-
         // Do any additional setup after loading the view.
     }
 
@@ -43,12 +44,4 @@ class EventPopoverViewController: UIViewController {
             self.placeLabel.text = newValue?.place
         }
     }
-
-    @objc func closeButtonPressed() {
-        print("close me")
-        self.dismiss(animated: true)
-    }
-
-
-
 }

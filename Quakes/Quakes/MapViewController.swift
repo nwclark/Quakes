@@ -45,32 +45,47 @@ class MapViewController: UIViewController {
 // ----------------------------------------------------------------------
 // MARK: - MKMapViewDelegate Support
 
-    extension MapViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate {
 
-        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-            view.setSelected(false, animated: true)
-            if let event = view.annotation as? MapViewModelController.SeismicEvent {
-                let eventPopupVC = EventPopoverViewController()
-                self.modalPresentationStyle = .popover
-                self.present(eventPopupVC, animated: true)
-                eventPopupVC.event = event
-                view.setSelected(false, animated: true)
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        view.setSelected(false, animated: true)
+        if let event = view.annotation as? MapViewModelController.SeismicEvent {
+            let eventPopoverVC = EventPopoverViewController()
+            eventPopoverVC.preferredContentSize = CGSize(width: 350, height: 350)
+            eventPopoverVC.modalPresentationStyle = .popover
+            if let presentationController = eventPopoverVC.presentationController {
+                presentationController.delegate = self
             }
-        }
-
-        func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-
-        }
-
-        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-            let reuseIdentifier = "EventAnnotation"
-            if let event = annotation as? MapViewModelController.SeismicEvent {
-
-                let annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKMarkerAnnotationView ?? MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-
-                annotationView.markerTintColor = event.type?.markerTintColor
-                return annotationView
+            self.present(eventPopoverVC, animated: true)
+            if let popoverPresentationController = eventPopoverVC.popoverPresentationController {
+                popoverPresentationController.sourceView = view
+                popoverPresentationController.sourceRect = view.bounds
             }
-            return nil
+            eventPopoverVC.event = event
         }
+    }
+
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+
+    }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseIdentifier = "EventAnnotation"
+        if let event = annotation as? MapViewModelController.SeismicEvent {
+
+            let annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKMarkerAnnotationView ?? MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+
+            annotationView.markerTintColor = event.type?.markerTintColor
+            return annotationView
+        }
+        return nil
+    }
+}
+
+extension MapViewController : UIPopoverPresentationControllerDelegate {
+
+    /// Force popover to always be a popover, even on an iPhone.
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
 }
