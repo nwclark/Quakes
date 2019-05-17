@@ -51,8 +51,10 @@ class MapViewController: UIViewController {
             view.setSelected(false, animated: true)
             if let event = view.annotation as? MapViewModelController.SeismicEvent {
                 let eventPopupVC = EventPopoverViewController()
+                self.modalPresentationStyle = .popover
                 self.present(eventPopupVC, animated: true)
                 eventPopupVC.event = event
+                view.setSelected(false, animated: true)
             }
         }
 
