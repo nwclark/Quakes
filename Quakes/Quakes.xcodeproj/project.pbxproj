@@ -17,6 +17,8 @@
 		C7B453E2228CC45C00C5755C /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B453E1228CC45C00C5755C /* MapView.storyboard */; };
 		C7B453E4228CC48200C5755C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B453E3228CC48200C5755C /* MapViewController.swift */; };
 		C7B453E7228CC6F900C5755C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B453E6228CC6F900C5755C /* MapKit.framework */; };
+		C7DE227B228E4A5000EDA0AB /* EventPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE2279228E4A5000EDA0AB /* EventPopoverViewController.swift */; };
+		C7DE227C228E4A5000EDA0AB /* EventPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DE227A228E4A5000EDA0AB /* EventPopoverViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		C7B453E1228CC45C00C5755C /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
 		C7B453E3228CC48200C5755C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C7B453E6228CC6F900C5755C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C7DE2279228E4A5000EDA0AB /* EventPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPopoverViewController.swift; sourceTree = "<group>"; };
+		C7DE227A228E4A5000EDA0AB /* EventPopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventPopoverViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				C74DC370228B3081004582D3 /* Assets.xcassets */,
 				C74DC372228B3081004582D3 /* LaunchScreen.storyboard */,
 				C74DC375228B3081004582D3 /* Info.plist */,
+				C7DE2279228E4A5000EDA0AB /* EventPopoverViewController.swift */,
+				C7DE227A228E4A5000EDA0AB /* EventPopoverViewController.xib */,
 			);
 			path = Quakes;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7DE227C228E4A5000EDA0AB /* EventPopoverViewController.xib in Resources */,
 				C74DC374228B3081004582D3 /* LaunchScreen.storyboard in Resources */,
 				C74DC371228B3081004582D3 /* Assets.xcassets in Resources */,
 				C7B453E2228CC45C00C5755C /* MapView.storyboard in Resources */,
@@ -274,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7DE227B228E4A5000EDA0AB /* EventPopoverViewController.swift in Sources */,
 				C74DC36A228B3080004582D3 /* AppDelegate.swift in Sources */,
 				C76E0345228CC7CF0050DF6D /* MapViewModelController.swift in Sources */,
 				C7654E47228B329B00ED174E /* QuakeRequester.swift in Sources */,

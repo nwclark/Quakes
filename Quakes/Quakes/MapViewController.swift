@@ -48,7 +48,12 @@ class MapViewController: UIViewController {
     extension MapViewController: MKMapViewDelegate {
 
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-
+            view.setSelected(false, animated: true)
+            if let event = view.annotation as? MapViewModelController.SeismicEvent {
+                let eventPopupVC = EventPopoverViewController()
+                self.present(eventPopupVC, animated: true)
+                eventPopupVC.event = event
+            }
         }
 
         func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
