@@ -16,6 +16,9 @@ class MapViewController: UIViewController {
     /// Model controller associated with this view.
     lazy var modelController = MapViewModelController()
 
+    /// Preferred content size for event popovers on the map.
+    fileprivate static let eventPopoverContentSize = CGSize(width: 350, height: 200)
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,7 +54,7 @@ extension MapViewController: MKMapViewDelegate {
         view.setSelected(false, animated: true)
         if let event = view.annotation as? MapViewModelController.SeismicEvent {
             let eventPopoverVC = EventPopoverViewController()
-            eventPopoverVC.preferredContentSize = CGSize(width: 350, height: 350)
+            eventPopoverVC.preferredContentSize = MapViewController.eventPopoverContentSize
             eventPopoverVC.modalPresentationStyle = .popover
             if let presentationController = eventPopoverVC.presentationController {
                 presentationController.delegate = self
