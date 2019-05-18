@@ -76,8 +76,8 @@ class EventPopoverViewController: UIViewController {
             }
 
             if let depth = newValue?.location?.depth {
-                let depthString = locationFormatter.string(for: depth)
-                self.depthLabel.text = depthString! + " m"
+                let depthString = depthFormatter.string(for: depth)
+                self.depthLabel.text = depthString! + " km"
             } else {
                 self.depthLabel.text = nil
             }
@@ -108,7 +108,7 @@ class EventPopoverViewController: UIViewController {
         return formatter
     } ()
 
-    /// Applies formatting to the displayed latitude, longitude, and depth values.
+    /// Applies formatting to the displayed latitude and longitude values.
     fileprivate var locationFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 3
@@ -116,10 +116,19 @@ class EventPopoverViewController: UIViewController {
         return formatter
     } ()
 
+    /// Applies formatting for the displayed event time.
     fileprivate var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .medium
+        return formatter
+    } ()
+
+    /// Applies formatting for the displayed event depth.
+    fileprivate var depthFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.maximumIntegerDigits = 3
+        formatter.maximumFractionDigits = 1
         return formatter
     } ()
 }
