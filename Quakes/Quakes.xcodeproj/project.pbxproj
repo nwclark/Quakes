@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C74AADA922909E2E00E2B8B4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C74DC366228B3080004582D3 /* Quakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quakes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74DC369228B3080004582D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C74DC370228B3081004582D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,12 +90,13 @@
 		C74DC35D228B3080004582D3 = {
 			isa = PBXGroup;
 			children = (
-				C7FD340822909B7400D1E4A2 /* LICENSE */,
 				C74DC368228B3080004582D3 /* Quakes */,
 				C74DC37D228B3081004582D3 /* QuakesTests */,
 				C74DC388228B3081004582D3 /* QuakesUITests */,
 				C74DC367228B3080004582D3 /* Products */,
 				C7B453E5228CC6F900C5755C /* Frameworks */,
+				C7FD340822909B7400D1E4A2 /* LICENSE */,
+				C74AADA922909E2E00E2B8B4 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
