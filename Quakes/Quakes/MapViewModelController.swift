@@ -43,7 +43,12 @@ extension MapViewModelController {
         let boundingBox: [Double]? = nil
 
         init(queryResponse query: QuakeRequester.QueryResponse) {
-            generated = Date(timeIntervalSince1970: TimeInterval(query.metadata?.generated ?? 0))
+            if let gen = query.metadata?.generated {
+                generated = Date(timeIntervalSince1970: TimeInterval(gen) / 1000.0)
+            } else {
+                generated = nil
+            }
+
             event = query.features?.map{ event in SeismicEvent(queryResponseFeature: event) }
         }
     }
@@ -63,12 +68,27 @@ extension MapViewModelController {
         init(queryResponseFeature feature: QuakeRequester.QueryResponseFeature) {
             magnitude = feature.properties?.mag
             place = feature.properties?.place
-            time = Date(timeIntervalSince1970: TimeInterval(feature.properties?.time ?? 0))
-            updated = Date(timeIntervalSince1970: TimeInterval(feature.properties?.time ?? 0))
-            timezone = TimeZone(secondsFromGMT: feature.properties?.tz ?? 0)
             type = EventType.decode(string: feature.properties?.type)
             title = feature.properties?.title
             location = EventLocation(queryResponseFeature: feature)
+
+            if let timestamp = feature.properties?.time {
+                time = Date(timeIntervalSince1970: TimeInterval(timestamp) / 1000.0) // time is milliseconds, convert to seconds for Date
+            } else {
+                time = nil
+            }
+
+            if let updatedTime = feature.properties?.updated {
+                updated = Date(timeIntervalSince1970: TimeInterval(updatedTime) / 1000.0)
+            } else {
+                updated = nil
+            }
+
+            if let tz = feature.properties?.tz {
+                timezone = TimeZone(secondsFromGMT: tz)
+            } else {
+                timezone = nil
+            }
         }
 
         // ----------------------------------------------------------------------

@@ -112,6 +112,7 @@ extension QuakeRequester {
     struct QueryResponseFeatureProperties : Codable {
         let mag: Double?
         let place: String?
+        /// Timestamp in milliseconds since 1970 epoch.
         let time: Int?
         let updated: Int?
         let tz: Int?
