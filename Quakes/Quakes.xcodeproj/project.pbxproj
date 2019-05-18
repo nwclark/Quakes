@@ -17,7 +17,6 @@
 		C7B453E2228CC45C00C5755C /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B453E1228CC45C00C5755C /* MapView.storyboard */; };
 		C7B453E4228CC48200C5755C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B453E3228CC48200C5755C /* MapViewController.swift */; };
 		C7B453E7228CC6F900C5755C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B453E6228CC6F900C5755C /* MapKit.framework */; };
-		C7CC7FA9229099D800AC66C7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C7CC7FA8229099D800AC66C7 /* LICENSE */; };
 		C7DE227B228E4A5000EDA0AB /* EventPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE2279228E4A5000EDA0AB /* EventPopoverViewController.swift */; };
 		C7DE227C228E4A5000EDA0AB /* EventPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DE227A228E4A5000EDA0AB /* EventPopoverViewController.xib */; };
 /* End PBXBuildFile section */
@@ -56,9 +55,9 @@
 		C7B453E1228CC45C00C5755C /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
 		C7B453E3228CC48200C5755C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C7B453E6228CC6F900C5755C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		C7CC7FA8229099D800AC66C7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C7DE2279228E4A5000EDA0AB /* EventPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPopoverViewController.swift; sourceTree = "<group>"; };
 		C7DE227A228E4A5000EDA0AB /* EventPopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventPopoverViewController.xib; sourceTree = "<group>"; };
+		C7FD340822909B7400D1E4A2 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +89,7 @@
 		C74DC35D228B3080004582D3 = {
 			isa = PBXGroup;
 			children = (
-				C7CC7FA8229099D800AC66C7 /* LICENSE */,
+				C7FD340822909B7400D1E4A2 /* LICENSE */,
 				C74DC368228B3080004582D3 /* Quakes */,
 				C74DC37D228B3081004582D3 /* QuakesTests */,
 				C74DC388228B3081004582D3 /* QuakesUITests */,
@@ -260,7 +259,6 @@
 				C74DC374228B3081004582D3 /* LaunchScreen.storyboard in Resources */,
 				C74DC371228B3081004582D3 /* Assets.xcassets in Resources */,
 				C7B453E2228CC45C00C5755C /* MapView.storyboard in Resources */,
-				C7CC7FA9229099D800AC66C7 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
