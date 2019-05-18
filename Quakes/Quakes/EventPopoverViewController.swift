@@ -34,7 +34,7 @@ class EventPopoverViewController: UIViewController {
 
         set {
             self._event = newValue
-            self.typeLabel.text = newValue?.type?.text
+            self.typeLabel.text = newValue?.type?.userText
             self.summaryLabel.text = newValue?.title
             if let magnitude = newValue?.magnitude {
                 self.magnitudeLabel.text = String(magnitude)

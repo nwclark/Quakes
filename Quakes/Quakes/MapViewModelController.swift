@@ -86,7 +86,7 @@ extension MapViewModelController {
         }
 
         var subtitle: String? {
-            let subtitle = type?.text ?? "Unknown"
+            let subtitle = type?.userText ?? "Unknown"
             return subtitle
         }
     }
@@ -268,11 +268,11 @@ extension MapViewModelController {
 
         /// A developmental descriptive string, usually used in debugging.
         var description: String {
-            return self.text
+            return self.userText
         }
 
         /// A display-ready descriptive string, meant to be displayed to the user.
-        var text: String {
+        var userText: String {
             switch self {
             case .earthquake:
                 return "Earthquake"
@@ -334,26 +334,26 @@ extension MapViewModelController {
             switch self {
 
             case .acousticNoise:
-                return UIColor.blue
+                return UIColor.init(red: 25/255, green: 195/255, blue: 237/255, alpha: 1.0)
             case .anthropogenicEvent:
                 return UIColor.gray
             case .buildingCollapse, .chemicalExplosion, .collapse, .inducedEvent:
                  return UIColor.cyan
             case .earthquake:
-                return UIColor.orange
+                return UIColor.init(red: 251/255, green: 127/255, blue: 6/255, alpha: 1.0)
             case .experimentalExplosion:
                 return UIColor.darkGray
             case .explosion:
                 return UIColor.red
             case .iceQuake:
-                return UIColor.lightGray
+                return UIColor.init(red: 255/255, green: 214/255, blue: 174/255, alpha: 1.0)
             case .landslide:
                  return UIColor.brown
             case .meteor, .meteorite, .mineCollapse, .mineExplosion,
                  .notReported, .nuclearExplosion, .other:
                 return UIColor.blue
             case .quaryBlast:
-                return UIColor.green
+                return UIColor.init(red: 50/255, green: 145/255, blue: 38/255, alpha: 1.0)
             case .rockBurst, .rockSlide:
                 return UIColor.lightGray
             case .snowAvalanche:
