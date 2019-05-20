@@ -101,9 +101,10 @@ extension MapViewController: MKMapViewDelegate {
         let reuseIdentifier = "EventAnnotation"
         if let event = annotation as? MapViewModelController.SeismicEvent {
 
-            let annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKMarkerAnnotationView ?? MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-
-            annotationView.markerTintColor = event.type?.markerTintColor
+            let annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            let markerImage = event.mapMarkerImage
+            annotationView.image = markerImage
+            annotationView.annotation = annotation
             return annotationView
         }
         return nil

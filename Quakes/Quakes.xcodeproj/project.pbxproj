@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C70894FB2293072C00D3274B /* MapViewModelControllerDatatypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70894FA2293072C00D3274B /* MapViewModelControllerDatatypes.swift */; };
 		C74DC36A228B3080004582D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DC369228B3080004582D3 /* AppDelegate.swift */; };
 		C74DC371228B3081004582D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C74DC370228B3081004582D3 /* Assets.xcassets */; };
 		C74DC374228B3081004582D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74DC372228B3081004582D3 /* LaunchScreen.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C70894FA2293072C00D3274B /* MapViewModelControllerDatatypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelControllerDatatypes.swift; sourceTree = "<group>"; };
 		C74AADA922909E2E00E2B8B4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C74DC366228B3080004582D3 /* Quakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quakes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74DC369228B3080004582D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				C74DC375228B3081004582D3 /* Info.plist */,
 				C7DE2279228E4A5000EDA0AB /* EventPopoverViewController.swift */,
 				C7DE227A228E4A5000EDA0AB /* EventPopoverViewController.xib */,
+				C70894FA2293072C00D3274B /* MapViewModelControllerDatatypes.swift */,
 			);
 			path = Quakes;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7DE227B228E4A5000EDA0AB /* EventPopoverViewController.swift in Sources */,
+				C70894FB2293072C00D3274B /* MapViewModelControllerDatatypes.swift in Sources */,
 				C74DC36A228B3080004582D3 /* AppDelegate.swift in Sources */,
 				C76E0345228CC7CF0050DF6D /* MapViewModelController.swift in Sources */,
 				C7654E47228B329B00ED174E /* QuakeRequester.swift in Sources */,
