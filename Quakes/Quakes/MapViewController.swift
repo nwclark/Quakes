@@ -75,6 +75,7 @@ class MapViewController: UIViewController {
 extension MapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        /// Deselect the annotation and show the popover with details.
         mapView.deselectAnnotation(view.annotation!, animated: true)
         if let event = view.annotation as? MapViewModelController.SeismicEvent {
             let eventPopoverVC = EventPopoverViewController()
@@ -109,9 +110,12 @@ extension MapViewController: MKMapViewDelegate {
     }
 }
 
+// ----------------------------------------------------------------------
+// MARK: - UIPopoverPresentationControllerDelegate
+
 extension MapViewController : UIPopoverPresentationControllerDelegate {
 
-    /// Force popover to always be a popover, even on an iPhone.
+    /// By returning `.none`, forces popover to always be a popover, even on an iPhone.
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
     }
