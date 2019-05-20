@@ -160,7 +160,9 @@ extension MapViewModelController {
             depth = feature.geometry?.coordinates?[2] ?? 0
         }
     }
+}
 
+extension MapViewModelController {
 
     /// Event type assigned by FDSN.
     ///

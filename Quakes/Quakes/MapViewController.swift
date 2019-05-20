@@ -74,6 +74,10 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate {
 
+    /// Displays a popover with event details when a user selects an event.
+    /// - Parameters:
+    ///   - mapView: map view containing the annotation
+    ///   - view: view that was selected by the user
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         /// Deselect the annotation and show the popover with details.
         mapView.deselectAnnotation(view.annotation!, animated: true)
@@ -97,6 +101,13 @@ extension MapViewController: MKMapViewDelegate {
 
     }
 
+
+    /// Returns the `MKAnnotationView` used to represent the event on the map.
+    ///
+    /// - Parameters:
+    ///   - mapView: map view containing the annotation marker
+    ///   - annotation: Event the view should represent.
+    /// - Returns: The `MKAnnotationView` that should be placed on the map.
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseIdentifier = "EventAnnotation"
         if let event = annotation as? MapViewModelController.SeismicEvent {
