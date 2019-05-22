@@ -1,8 +1,8 @@
 //
-//  MapViewModelController.swift
+//  EventFilter.swift
 //  Quakes
 //
-//  Created by Nathan Clark on 5/15/19.
+//  Created by Nathan Clark on 5/22/19.
 //  Copyright © 2019 Nathan Clark. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -31,34 +31,40 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
-import CoreLocation
-import MapKit
 
-class MapViewModelController {
 
-    lazy var quakeRequester: QuakeRequester = QuakeRequester()
+class EventFilter {
 
-    /// Fetches all seismic events from the past 24 hours.
-    ///
-    /// - Parameters:
-    ///    - completion: Completion handler executed asynchronously with results/
-    ///    - events: List of seismic events
-    ///    - error: Errors, if any, from processing request.
-    func getLatestEvents(_ completion: @escaping (_ events: EventList?, _ error: Error?) -> Void) {
-        quakeRequester.getLastDaysEvents {
-            response, error in
-            var completionResponse: EventList?
+    private static let instance: EventFilter = {
+        let eventFilter = EventFilter()
+        return eventFilter
+    } ()
 
-            if let response = response {
-                completionResponse = EventList(queryResponse: response)
-                let filteredEvents = completionResponse?.event?.filter({
-                    (seismicEvent) -> Bool in
-                    return EventFilter.shared().isIncluded(seismicEvent: seismicEvent)
-                })
-                completionResponse?.event = filteredEvents
-            }
+    private init () { }
 
-            completion(completionResponse, error)
-        }
+    private let minimumMaginitude = 4.0
+    private let maximumMagnitude = 10.0
+
+    class func shared() -> EventFilter {
+        return instance
     }
+
+
+    /// Determines whether a `SeismicEvent` should be included based on the
+    /// current filter settings.
+    ///
+    /// - Parameter seismicEvent: The event to test.
+    /// - Returns: `true` if the event should be included, `false` if not.
+    func isIncluded(seismicEvent: MapViewModelController.SeismicEvent) -> Bool {
+        guard let magnitude = seismicEvent.magnitude else {
+            return false
+        }
+
+        if magnitude <= maximumMagnitude && magnitude >= minimumMaginitude {
+            return true
+        }
+
+        return false
+    }
+
 }

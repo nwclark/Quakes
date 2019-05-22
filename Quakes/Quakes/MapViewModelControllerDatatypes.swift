@@ -35,9 +35,11 @@ import MapKit
 
 extension MapViewModelController {
 
+
+
     /// Contains a list of `SeismicEvents` retrieved from the webservice.
     class EventList {
-        let event: [SeismicEvent]?
+        var event: [SeismicEvent]?
         let generated: Date?
         let boundingBox: [Double]? = nil
 

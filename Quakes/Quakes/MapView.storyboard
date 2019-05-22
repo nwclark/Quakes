@@ -21,23 +21,33 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VLD-iU-5Ql">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hS2-2L-Orh">
+                                <rect key="frame" x="20" y="44" width="50" height="50"/>
+                                <state key="normal" image="FilterIcon"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8ub-VX-1m9" firstAttribute="trailing" secondItem="VLD-iU-5Ql" secondAttribute="trailing" id="Clg-ht-4Xn"/>
                             <constraint firstItem="VLD-iU-5Ql" firstAttribute="top" secondItem="8ub-VX-1m9" secondAttribute="top" id="KUk-AQ-5HR"/>
+                            <constraint firstItem="hS2-2L-Orh" firstAttribute="top" secondItem="8ub-VX-1m9" secondAttribute="top" id="UQu-Ta-3MR"/>
                             <constraint firstItem="VLD-iU-5Ql" firstAttribute="leading" secondItem="8ub-VX-1m9" secondAttribute="leading" id="VQh-ht-Okd"/>
+                            <constraint firstItem="8ub-VX-1m9" firstAttribute="leading" secondItem="hS2-2L-Orh" secondAttribute="leading" constant="-20" id="cSH-Gz-2kt"/>
                             <constraint firstItem="8ub-VX-1m9" firstAttribute="bottom" secondItem="VLD-iU-5Ql" secondAttribute="bottom" id="pbZ-Bq-FG0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8ub-VX-1m9"/>
                     </view>
                     <connections>
+                        <outlet property="filterButton" destination="hS2-2L-Orh" id="VEH-9I-aWn"/>
                         <outlet property="mapView" destination="VLD-iU-5Ql" id="ofe-ys-ibT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GsK-bM-qdf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-280" y="321"/>
+            <point key="canvasLocation" x="-281.15942028985512" y="320.75892857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FilterIcon" width="50" height="50"/>
+    </resources>
 </document>

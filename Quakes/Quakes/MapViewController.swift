@@ -36,7 +36,8 @@ import MapKit
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
-    
+    @IBOutlet weak var filterButton: UIButton!
+
     /// Model controller associated with this view.
     lazy var modelController = MapViewModelController()
 
@@ -45,6 +46,8 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.filterButton.addTarget(self, action: #selector(MapViewController.filterButtonPressed), for: .touchUpInside)
 
         initializeMapView()
         getEvents()
@@ -66,6 +69,11 @@ class MapViewController: UIViewController {
                 }
             }
         }
+    }
+
+    /// Handles a filter button press from the user.
+    @objc func filterButtonPressed() {
+        print("filter button pressed")
     }
 }
 
