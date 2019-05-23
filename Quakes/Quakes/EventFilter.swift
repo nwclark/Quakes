@@ -42,8 +42,11 @@ class EventFilter {
 
     private init () { }
 
-    private let minimumMaginitude = 4.0
-    private let maximumMagnitude = 10.0
+    /// User-selected minimum magnitude.
+    var minimumMaginitude = 4.0
+
+    /// User-selected maximum magnitude
+    var maximumMagnitude = 10.0
 
     class func shared() -> EventFilter {
         return instance

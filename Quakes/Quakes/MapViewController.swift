@@ -73,8 +73,15 @@ class MapViewController: UIViewController {
 
     /// Handles a filter button press from the user.
     @objc func filterButtonPressed() {
-        print("filter button pressed")
+        self.displayFilters()
     }
+
+    fileprivate func displayFilters() {
+        let filterVC: EventFilterViewController = UIStoryboard(name: "EventFilterViewController", bundle: nil).instantiateViewController(withIdentifier: "EventFilterViewController") as UIViewController as! EventFilterViewController
+
+        self.present(filterVC, animated: true)
+    }
+
 }
 
 // ----------------------------------------------------------------------

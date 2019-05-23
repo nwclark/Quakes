@@ -13,6 +13,8 @@
 		C74DC374228B3081004582D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74DC372228B3081004582D3 /* LaunchScreen.storyboard */; };
 		C74DC38A228B3081004582D3 /* QuakesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DC389228B3081004582D3 /* QuakesUITests.swift */; };
 		C74E35272295A0E800D955A9 /* EventFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74E35262295A0E800D955A9 /* EventFilter.swift */; };
+		C74E35292295B16C00D955A9 /* EventFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74E35282295B16C00D955A9 /* EventFilterViewController.swift */; };
+		C74E352B2295B1A700D955A9 /* EventFilterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74E352A2295B1A700D955A9 /* EventFilterViewController.storyboard */; };
 		C7654E47228B329B00ED174E /* QuakeRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7654E46228B329B00ED174E /* QuakeRequester.swift */; };
 		C76E0345228CC7CF0050DF6D /* MapViewModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E0344228CC7CF0050DF6D /* MapViewModelController.swift */; };
 		C7B453E0228C923300C5755C /* UTQuakeRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B453DF228C923300C5755C /* UTQuakeRequester.swift */; };
@@ -54,6 +56,8 @@
 		C74DC389228B3081004582D3 /* QuakesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakesUITests.swift; sourceTree = "<group>"; };
 		C74DC38B228B3081004582D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C74E35262295A0E800D955A9 /* EventFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilter.swift; sourceTree = "<group>"; };
+		C74E35282295B16C00D955A9 /* EventFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterViewController.swift; sourceTree = "<group>"; };
+		C74E352A2295B1A700D955A9 /* EventFilterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventFilterViewController.storyboard; sourceTree = "<group>"; };
 		C7654E46228B329B00ED174E /* QuakeRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeRequester.swift; sourceTree = "<group>"; };
 		C76E0344228CC7CF0050DF6D /* MapViewModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelController.swift; sourceTree = "<group>"; };
 		C7B453DF228C923300C5755C /* UTQuakeRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTQuakeRequester.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				C7DE227A228E4A5000EDA0AB /* EventPopoverViewController.xib */,
 				C70894FA2293072C00D3274B /* MapViewModelControllerDatatypes.swift */,
 				C74E35262295A0E800D955A9 /* EventFilter.swift */,
+				C74E35282295B16C00D955A9 /* EventFilterViewController.swift */,
+				C74E352A2295B1A700D955A9 /* EventFilterViewController.storyboard */,
 			);
 			path = Quakes;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C74E352B2295B1A700D955A9 /* EventFilterViewController.storyboard in Resources */,
 				C7DE227C228E4A5000EDA0AB /* EventPopoverViewController.xib in Resources */,
 				C74DC374228B3081004582D3 /* LaunchScreen.storyboard in Resources */,
 				C74DC371228B3081004582D3 /* Assets.xcassets in Resources */,
@@ -292,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C74E35272295A0E800D955A9 /* EventFilter.swift in Sources */,
+				C74E35292295B16C00D955A9 /* EventFilterViewController.swift in Sources */,
 				C7DE227B228E4A5000EDA0AB /* EventPopoverViewController.swift in Sources */,
 				C70894FB2293072C00D3274B /* MapViewModelControllerDatatypes.swift in Sources */,
 				C74DC36A228B3080004582D3 /* AppDelegate.swift in Sources */,
