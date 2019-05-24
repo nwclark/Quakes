@@ -36,7 +36,6 @@ import MapKit
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var filterButton: UIButton!
 
     /// Model controller associated with this view.
     lazy var modelController = MapViewModelController()
@@ -47,8 +46,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.filterButton.addTarget(self, action: #selector(MapViewController.filterButtonPressed), for: .touchUpInside)
-
+        initializeNavBar()
         initializeMapView()
         getEvents()
     }
@@ -56,6 +54,15 @@ class MapViewController: UIViewController {
     /// Sets the mapView properties to desired initial
     fileprivate func initializeMapView() {
         self.mapView.delegate = self
+    }
+
+    fileprivate func initializeNavBar() {
+        let filterNavBarButton = UIBarButtonItem(title: "Filter",
+                                                 style: .plain,
+                                                 target: self,
+                                                 action: #selector(MapViewController.filterButtonPressed))
+        self.navigationItem.rightBarButtonItem = filterNavBarButton
+        self.navigationItem.title = "Seismic Events"
     }
 
     /// Fetch events from the webservice and display on map.
@@ -76,10 +83,11 @@ class MapViewController: UIViewController {
         self.displayFilters()
     }
 
+    /// Displays the EventFilterViewController.
     fileprivate func displayFilters() {
         let filterVC: EventFilterViewController = UIStoryboard(name: "EventFilterViewController", bundle: nil).instantiateViewController(withIdentifier: "EventFilterViewController") as UIViewController as! EventFilterViewController
 
-        self.present(filterVC, animated: true)
+        self.navigationController?.pushViewController(filterVC, animated: true)
     }
 
 }

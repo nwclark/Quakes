@@ -18,44 +18,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBb-H6-uLM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Filters" id="phC-IU-DvI"/>
-                                </items>
-                            </navigationBar>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="QO4-Cx-51O">
-                                <rect key="frame" x="42" y="191" width="94" height="29"/>
+                                <rect key="frame" x="42" y="139.5" width="94" height="29"/>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magnitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYA-kX-eN5">
-                                <rect key="frame" x="156" y="97.5" width="102" height="27"/>
+                                <rect key="frame" x="156" y="46" width="102" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="CHi-ml-zKR">
-                                <rect key="frame" x="260" y="191" width="94" height="29"/>
+                                <rect key="frame" x="260" y="139.5" width="94" height="29"/>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5f-Es-Mrb">
-                                <rect key="frame" x="54" y="228" width="70" height="21"/>
+                                <rect key="frame" x="54" y="176.5" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qvw-Vl-YUr">
-                                <rect key="frame" x="269.5" y="228" width="75" height="21"/>
+                                <rect key="frame" x="269.5" y="176.5" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nll-4r-jpp">
-                                <rect key="frame" x="288.5" y="146" width="37" height="24"/>
+                                <rect key="frame" x="288.5" y="94.5" width="37" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JP-Lb-vvU">
-                                <rect key="frame" x="73" y="146" width="32.5" height="24"/>
+                                <rect key="frame" x="73" y="94.5" width="32.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -66,14 +60,11 @@
                             <constraint firstItem="5JP-Lb-vvU" firstAttribute="bottom" secondItem="Nll-4r-jpp" secondAttribute="bottom" id="0Qg-mo-wOd"/>
                             <constraint firstItem="QO4-Cx-51O" firstAttribute="leading" secondItem="8jm-N8-aeb" secondAttribute="leading" constant="42" id="4lD-Tm-zZC"/>
                             <constraint firstItem="Qvw-Vl-YUr" firstAttribute="centerX" secondItem="CHi-ml-zKR" secondAttribute="centerX" id="6HL-aE-xvE"/>
-                            <constraint firstItem="mYA-kX-eN5" firstAttribute="top" secondItem="wBb-H6-uLM" secondAttribute="bottom" constant="9.5" id="ASy-xq-fob"/>
+                            <constraint firstItem="mYA-kX-eN5" firstAttribute="top" secondItem="8jm-N8-aeb" secondAttribute="top" constant="2" id="EaB-cp-fX2"/>
                             <constraint firstItem="QO4-Cx-51O" firstAttribute="top" secondItem="5JP-Lb-vvU" secondAttribute="bottom" constant="21" id="Fzc-ZP-QHf"/>
                             <constraint firstItem="o5f-Es-Mrb" firstAttribute="bottom" secondItem="Qvw-Vl-YUr" secondAttribute="bottom" id="HfY-ZW-em0"/>
-                            <constraint firstItem="wBb-H6-uLM" firstAttribute="leading" secondItem="8jm-N8-aeb" secondAttribute="leading" id="N24-wc-piy"/>
                             <constraint firstItem="QO4-Cx-51O" firstAttribute="bottom" secondItem="CHi-ml-zKR" secondAttribute="bottom" id="ReL-WI-LLA"/>
-                            <constraint firstItem="8jm-N8-aeb" firstAttribute="trailing" secondItem="wBb-H6-uLM" secondAttribute="trailing" id="SRY-6m-fOY"/>
                             <constraint firstItem="o5f-Es-Mrb" firstAttribute="centerX" secondItem="QO4-Cx-51O" secondAttribute="centerX" id="XKL-UZ-kdq"/>
-                            <constraint firstItem="wBb-H6-uLM" firstAttribute="top" secondItem="8jm-N8-aeb" secondAttribute="top" id="czV-NC-Nau"/>
                             <constraint firstItem="Nll-4r-jpp" firstAttribute="centerX" secondItem="CHi-ml-zKR" secondAttribute="centerX" id="dRv-e9-GZN"/>
                             <constraint firstItem="5JP-Lb-vvU" firstAttribute="centerX" secondItem="QO4-Cx-51O" secondAttribute="centerX" id="g1Z-PV-rL1"/>
                             <constraint firstItem="mYA-kX-eN5" firstAttribute="centerX" secondItem="8jm-N8-aeb" secondAttribute="centerX" id="hW7-Fe-ihU"/>
@@ -88,7 +79,6 @@
                         <outlet property="magMaxStepper" destination="CHi-ml-zKR" id="TQT-Mh-DYT"/>
                         <outlet property="magMinDisplay" destination="5JP-Lb-vvU" id="Tpl-eC-H9S"/>
                         <outlet property="magMinStepper" destination="QO4-Cx-51O" id="Wf0-EJ-5wn"/>
-                        <outlet property="navigationBar" destination="wBb-H6-uLM" id="9Tb-Bp-1aF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMf-Hk-J6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
