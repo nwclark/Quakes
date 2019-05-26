@@ -20,6 +20,9 @@
                         <subviews>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="QO4-Cx-51O">
                                 <rect key="frame" x="42" y="139.5" width="94" height="29"/>
+                                <connections>
+                                    <action selector="minimumValueChanged:" destination="v8i-to-t3X" eventType="valueChanged" id="gtm-Lp-Pv5"/>
+                                </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magnitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYA-kX-eN5">
                                 <rect key="frame" x="156" y="46" width="102" height="27"/>
@@ -29,6 +32,9 @@
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="CHi-ml-zKR">
                                 <rect key="frame" x="260" y="139.5" width="94" height="29"/>
+                                <connections>
+                                    <action selector="maximumValueChanged:" destination="v8i-to-t3X" eventType="valueChanged" id="Afc-om-TEp"/>
+                                </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5f-Es-Mrb">
                                 <rect key="frame" x="54" y="176.5" width="70" height="21"/>
@@ -75,10 +81,10 @@
                         <viewLayoutGuide key="safeArea" id="8jm-N8-aeb"/>
                     </view>
                     <connections>
-                        <outlet property="magMaxDisplay" destination="Nll-4r-jpp" id="xXu-Cg-vuy"/>
-                        <outlet property="magMaxStepper" destination="CHi-ml-zKR" id="TQT-Mh-DYT"/>
-                        <outlet property="magMinDisplay" destination="5JP-Lb-vvU" id="Tpl-eC-H9S"/>
-                        <outlet property="magMinStepper" destination="QO4-Cx-51O" id="Wf0-EJ-5wn"/>
+                        <outlet property="magnitudeMaximumDisplay" destination="Nll-4r-jpp" id="xXu-Cg-vuy"/>
+                        <outlet property="magnitudeMaximumStepper" destination="CHi-ml-zKR" id="TQT-Mh-DYT"/>
+                        <outlet property="magnitudeMinimumDisplay" destination="5JP-Lb-vvU" id="Tpl-eC-H9S"/>
+                        <outlet property="magnitudeMinimumStepper" destination="QO4-Cx-51O" id="Wf0-EJ-5wn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMf-Hk-J6s" userLabel="First Responder" sceneMemberID="firstResponder"/>

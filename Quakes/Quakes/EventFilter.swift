@@ -33,7 +33,12 @@
 import Foundation
 
 
+/// A singleton object managing the user's event filter settings.
+/// The shared instance should be accessed through the `shared()` method.
 class EventFilter {
+
+    // ----------------------------------------------------------------------
+    // MARK: - Private Members
 
     private static let instance: EventFilter = {
         let eventFilter = EventFilter()
@@ -42,18 +47,29 @@ class EventFilter {
 
     private init () { }
 
+    // ----------------------------------------------------------------------
+    // MARK: - Public Interface
+
+    /// Upper magnitude bounds.
+    static let maximumAllowableMagnitude: Double = 10.0 // TODO: Enforce
+
+    /// Lower magnitude bounds.
+    static let minimumAllowableMagnitude : Double = 0.0 // TODO: Enforce
+
     /// User-selected minimum magnitude.
-    var minimumMaginitude = 4.0
+    var userMinimumMaginitude = 4.0 // TODO: initialize from permastore
 
     /// User-selected maximum magnitude
-    var maximumMagnitude = 10.0
+    var userMaximumMagnitude = 10.0 // TODO: initialize from permastore
 
+    /// Allows access to the shared `EventFilter` instance.
+    ///
+    /// - Returns: The singleton instance of `EventFilter`.
     class func shared() -> EventFilter {
         return instance
     }
 
-
-    /// Determines whether a `SeismicEvent` should be included based on the
+    /// Determines whether the `magnitude` of a `SeismicEvent` should be included based on the
     /// current filter settings.
     ///
     /// - Parameter seismicEvent: The event to test.
@@ -63,11 +79,10 @@ class EventFilter {
             return false
         }
 
-        if magnitude <= maximumMagnitude && magnitude >= minimumMaginitude {
+        if magnitude <= userMaximumMagnitude && magnitude >= userMinimumMaginitude {
             return true
         }
 
         return false
     }
-
 }

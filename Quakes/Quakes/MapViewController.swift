@@ -48,6 +48,10 @@ class MapViewController: UIViewController {
 
         initializeNavBar()
         initializeMapView()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         getEvents()
     }
     
@@ -72,6 +76,7 @@ class MapViewController: UIViewController {
             if let quakes = events?.event {
                 print("Adding \(quakes.count) events")
                 DispatchQueue.main.async {
+                    self.mapView.removeAnnotations(self.mapView.annotations)
                     self.mapView.addAnnotations(quakes)
                 }
             }

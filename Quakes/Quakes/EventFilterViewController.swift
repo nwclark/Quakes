@@ -37,10 +37,10 @@ class EventFilterViewController: UIViewController {
     // ----------------------------------------------------------------------
     // MARK: - IBOutlets
 
-    @IBOutlet weak var magMinStepper: UIStepper!
-    @IBOutlet weak var magMinDisplay: UILabel!
-    @IBOutlet weak var magMaxStepper: UIStepper!
-    @IBOutlet weak var magMaxDisplay: UILabel!
+    @IBOutlet weak var magnitudeMinimumStepper: UIStepper!
+    @IBOutlet weak var magnitudeMinimumDisplay: UILabel!
+    @IBOutlet weak var magnitudeMaximumStepper: UIStepper!
+    @IBOutlet weak var magnitudeMaximumDisplay: UILabel!
 
     // ----------------------------------------------------------------------
     // MARK: - View Lifecycle
@@ -65,13 +65,55 @@ class EventFilterViewController: UIViewController {
     
     /// Updates the UI to display values stored by the event filter.
     fileprivate func initializeMagnitudeFilterUI() {
-        self.magMinDisplay.text = String(EventFilter.shared().minimumMaginitude)
-        self.magMaxDisplay.text = String(EventFilter.shared().maximumMagnitude)
+        let minimumMagnitude = EventFilter.shared().userMinimumMaginitude
+        let maximumMagnitude = EventFilter.shared().userMaximumMagnitude
+
+        // Minimum magnitude init.
+        self.magnitudeMinimumDisplay.text         = String(minimumMagnitude)
+        self.magnitudeMinimumStepper.value        = minimumMagnitude
+        self.magnitudeMinimumStepper.maximumValue = maximumMagnitude
+        self.magnitudeMinimumStepper.minimumValue = EventFilter.minimumAllowableMagnitude
+        self.magnitudeMinimumStepper.stepValue    = 1.0
+
+        // Maximum magnitude init.
+        self.magnitudeMaximumDisplay.text         = String(maximumMagnitude)
+        self.magnitudeMaximumStepper.value        = maximumMagnitude
+        self.magnitudeMaximumStepper.minimumValue = self.magnitudeMinimumStepper.value
+        self.magnitudeMaximumStepper.maximumValue = EventFilter.maximumAllowableMagnitude
+        self.magnitudeMaximumStepper.stepValue    = 1.0
+    }
+
+    @IBAction func minimumValueChanged(_ sender: Any) {
+        var newValue = self.magnitudeMinimumStepper.value
+        print ("newValue: \(newValue)")
+        if newValue >= self.magnitudeMaximumStepper.value {
+            newValue = self.magnitudeMaximumStepper.value - 1.0
+            self.magnitudeMinimumStepper.value = newValue
+            print("Changed newValue to \(newValue)")
+        }
+
+        self.magnitudeMinimumDisplay.text = String(newValue)
+        self.magnitudeMaximumStepper.minimumValue = newValue
+    }
+
+    @IBAction func maximumValueChanged(_ sender: Any) {
+        var newValue = self.magnitudeMaximumStepper.value
+        print("newValue: \(newValue)")
+        if newValue <= self.magnitudeMinimumStepper.value {
+            newValue = self.magnitudeMinimumStepper.value + 1.0
+            self.magnitudeMaximumStepper.value = newValue
+            print("Changed newValue to \(newValue)")
+        }
+
+        self.magnitudeMaximumDisplay.text = String(newValue)
+        self.magnitudeMinimumStepper.maximumValue = newValue
     }
 
     /// Saves changes to `EventFilter` and exits.
     @objc fileprivate func saveAndExit() {
         // TODO: Write vals to EventFilter
+        EventFilter.shared().userMaximumMagnitude = self.magnitudeMaximumStepper.value
+        EventFilter.shared().userMinimumMaginitude = self.magnitudeMinimumStepper.value
         self.popToRoot()
     }
 
