@@ -45,25 +45,55 @@ class EventFilter {
         return eventFilter
     } ()
 
+    /// `UserDefaults` key for `userMinimumMagnitude`.
+    private static let userMinimumMagnitudeKey = "userMinimumMagnitude"
+
+    /// `UserDefaults` key for `userMaximumMagnitudeKey`.
+    private static let userMaximumMagnitudeKey = "userMaximumMagnitude"
+
+    /// Default minimum magnitude to use if none is set in `UserDefaults`.
+    private static let defaultUserMinimumMagnitude: Double = 4.0
+
+    /// Default maximum magnitude to use if none is set in `UserDefaults`.
+    private static let defaultUserMaximumMagnitude: Double = 10.0
+
+    /// Hide init from outsiders.
     private init () { }
 
     // ----------------------------------------------------------------------
     // MARK: - Public Interface
 
     /// Upper magnitude bounds.
-    static let maximumAllowableMagnitude: Double = 10.0 // TODO: Enforce
+    /// - TODO: Both `maximumAllowableMagnitude` and `minimumAllowableMagnitude` are being enforced
+    ///       outside `EventManager`. This should be fixed.
+    static let maximumAllowableMagnitude: Double = 10.0
 
     /// Lower magnitude bounds.
-    static let minimumAllowableMagnitude : Double = 0.0 // TODO: Enforce
+    /// - TODO: Both `maximumAllowableMagnitude` and `minimumAllowableMagnitude` are being enforced
+    ///       outside `EventManager`. This should be fixed.
+    static let minimumAllowableMagnitude : Double = 0.0
 
     /// User-selected minimum magnitude.
-    var userMinimumMaginitude = 4.0 // TODO: initialize from permastore
+    var userMinimumMaginitude: Double {
+        get {
+            return UserDefaults.standard.object(forKey: EventFilter.userMinimumMagnitudeKey) as? Double ?? EventFilter.defaultUserMinimumMagnitude
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: EventFilter.userMinimumMagnitudeKey)
+        }
+    }
 
     /// User-selected maximum magnitude
-    var userMaximumMagnitude = 10.0 // TODO: initialize from permastore
+    var userMaximumMagnitude: Double {
+        get {
+            return UserDefaults.standard.object(forKey: EventFilter.userMaximumMagnitudeKey) as? Double ?? EventFilter.defaultUserMaximumMagnitude
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: EventFilter.userMaximumMagnitudeKey)
+        }
+    }
 
     /// Allows access to the shared `EventFilter` instance.
-    ///
     /// - Returns: The singleton instance of `EventFilter`.
     class func shared() -> EventFilter {
         return instance

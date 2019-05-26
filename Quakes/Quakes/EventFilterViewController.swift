@@ -111,7 +111,6 @@ class EventFilterViewController: UIViewController {
 
     /// Saves changes to `EventFilter` and exits.
     @objc fileprivate func saveAndExit() {
-        // TODO: Write vals to EventFilter
         EventFilter.shared().userMaximumMagnitude = self.magnitudeMaximumStepper.value
         EventFilter.shared().userMinimumMaginitude = self.magnitudeMinimumStepper.value
         self.popToRoot()
@@ -121,5 +120,4 @@ class EventFilterViewController: UIViewController {
     @objc fileprivate func popToRoot() {
         self.navigationController?.popToRootViewController(animated: true)
     }
-
 }
