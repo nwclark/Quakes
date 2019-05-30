@@ -90,7 +90,7 @@ class MapViewController: UIViewController {
 
     /// Displays the EventFilterViewController.
     fileprivate func displayFilters() {
-        let filterVC: EventFilterViewController = UIStoryboard(name: "EventFilterViewController", bundle: nil).instantiateViewController(withIdentifier: "EventFilterViewController") as UIViewController as! EventFilterViewController
+        let filterVC: EventFilterTableViewController = UIStoryboard(name: "EventFilterTableViewController", bundle: nil).instantiateViewController(withIdentifier: "EventFilterTableViewController") as UIViewController as! EventFilterTableViewController
 
         self.navigationController?.pushViewController(filterVC, animated: true)
     }
