@@ -34,14 +34,15 @@ import Foundation
 
 class EventFilterTableViewModelController {
 
-    var minimumMagnitude = EventFilter.shared().userMinimumMaginitude
-
-    var maximumMagnitude = EventFilter.shared().userMaximumMagnitude
+    let maximumAllowableMagnitude = EventFilter.maximumAllowableMagnitude
+    var userMinimumMagnitude = EventFilter.shared().userMinimumMaginitude
+    let minimumAllowableMagnitude = EventFilter.minimumAllowableMagnitude
+    var userMaximumMagnitude = EventFilter.shared().userMaximumMagnitude
 
     /// Write the current settings to the `EventFilter`.
     func saveChanges() {
-        EventFilter.shared().userMaximumMagnitude = maximumMagnitude
-        EventFilter.shared().userMinimumMaginitude = minimumMagnitude
+        EventFilter.shared().userMaximumMagnitude = userMaximumMagnitude
+        EventFilter.shared().userMinimumMaginitude = userMinimumMagnitude
     }
 
 }

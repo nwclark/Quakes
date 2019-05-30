@@ -57,25 +57,28 @@ class EventFilterMagnitudeTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.initializeUI()
     }
 
     fileprivate func initializeUI() {
-        let minimumMagnitude = EventFilter.shared().userMinimumMaginitude
-        let maximumMagnitude = EventFilter.shared().userMaximumMagnitude
+        guard let modelController = self.eventTableViewModelController else {
+            fatalError("EventTableViewModelController not connected")
+        }
+
+        let minimumMagnitude = modelController.userMinimumMagnitude
+        let maximumMagnitude = modelController.userMaximumMagnitude
 
         // Minimum magnitude init.
         self.minimumValueLabel.text      = String(minimumMagnitude)
         self.minimumStepper.value        = minimumMagnitude
         self.minimumStepper.maximumValue = maximumMagnitude
-        self.minimumStepper.minimumValue = EventFilter.minimumAllowableMagnitude
+        self.minimumStepper.minimumValue = modelController.minimumAllowableMagnitude
         self.minimumStepper.stepValue    = 1.0
 
         // Maximum magnitude init.
         self.maximumValueLabel.text      = String(maximumMagnitude)
         self.maximumStepper.value        = maximumMagnitude
         self.maximumStepper.minimumValue = self.minimumStepper.value
-        self.maximumStepper.maximumValue = EventFilter.maximumAllowableMagnitude
+        self.maximumStepper.maximumValue = modelController.maximumAllowableMagnitude
         self.maximumStepper.stepValue    = 1.0
     }
 
@@ -83,6 +86,10 @@ class EventFilterMagnitudeTableViewCell: UITableViewCell {
     // MARK: - IBActions
 
     @IBAction func minimumStepperValueChanged(_ sender: Any) {
+        guard let modelController = self.eventTableViewModelController else {
+            fatalError("EventTableViewModelController not connected")
+        }
+
         var newValue = self.minimumStepper.value
         print ("newValue: \(newValue)")
         if newValue >= self.maximumStepper.value {
@@ -92,11 +99,14 @@ class EventFilterMagnitudeTableViewCell: UITableViewCell {
         }
 
         self.minimumValueLabel.text = String(newValue)
-        self.eventTableViewModelController?.minimumMagnitude = newValue
+        modelController.userMinimumMagnitude = newValue
         self.maximumStepper.minimumValue = newValue
     }
 
     @IBAction func maximumStepperValueChanged(_ sender: Any) {
+        guard let modelController = self.eventTableViewModelController else {
+            fatalError("EventTableViewModelController not connected")
+        }
         var newValue = self.maximumStepper.value
         print("newValue: \(newValue)")
         if newValue <= self.minimumStepper.value {
@@ -106,7 +116,7 @@ class EventFilterMagnitudeTableViewCell: UITableViewCell {
         }
 
         self.maximumValueLabel.text = String(newValue)
-        self.eventTableViewModelController?.maximumMagnitude = newValue
+        modelController.userMaximumMagnitude = newValue
         self.minimumStepper.maximumValue = newValue
     }
 
@@ -118,6 +128,7 @@ class EventFilterMagnitudeTableViewCell: UITableViewCell {
 extension EventFilterMagnitudeTableViewCell: EventFilterTableViewCell {
     func connect(with eventTableViewModelController: EventFilterTableViewModelController) {
         self.eventTableViewModelController = eventTableViewModelController
+        self.initializeUI()
     }
 
     static var sectionTitle: String { return "Magnitude" }
