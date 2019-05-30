@@ -32,7 +32,7 @@
 
 import UIKit
 
-class EventFilterMagnitudeTableViewCell: UITableViewCell, EventFilterTableViewCell {
+class EventFilterMagnitudeTableViewCell: UITableViewCell {
 
     // ----------------------------------------------------------------------
     // MARK: - IBOutlets
@@ -49,33 +49,76 @@ class EventFilterMagnitudeTableViewCell: UITableViewCell, EventFilterTableViewCe
     /// UIControl for changing the maximum magnitude value.
     @IBOutlet weak var maximumStepper: UIStepper!
 
+    /// The view controller managing this cell.
+    weak fileprivate var eventTableViewModelController: EventFilterTableViewModelController?
+
     // ----------------------------------------------------------------------
     // MARK: - Lifecycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.initializeUI()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    fileprivate func initializeUI() {
+        let minimumMagnitude = EventFilter.shared().userMinimumMaginitude
+        let maximumMagnitude = EventFilter.shared().userMaximumMagnitude
 
-        // Configure the view for the selected state
+        // Minimum magnitude init.
+        self.minimumValueLabel.text      = String(minimumMagnitude)
+        self.minimumStepper.value        = minimumMagnitude
+        self.minimumStepper.maximumValue = maximumMagnitude
+        self.minimumStepper.minimumValue = EventFilter.minimumAllowableMagnitude
+        self.minimumStepper.stepValue    = 1.0
+
+        // Maximum magnitude init.
+        self.maximumValueLabel.text      = String(maximumMagnitude)
+        self.maximumStepper.value        = maximumMagnitude
+        self.maximumStepper.minimumValue = self.minimumStepper.value
+        self.maximumStepper.maximumValue = EventFilter.maximumAllowableMagnitude
+        self.maximumStepper.stepValue    = 1.0
     }
 
     // ----------------------------------------------------------------------
     // MARK: - IBActions
+
     @IBAction func minimumStepperValueChanged(_ sender: Any) {
-        print("minimum value: \(self.minimumStepper.value)")
+        var newValue = self.minimumStepper.value
+        print ("newValue: \(newValue)")
+        if newValue >= self.maximumStepper.value {
+            newValue = self.maximumStepper.value - 1.0
+            self.minimumStepper.value = newValue
+            print("Changed newValue to \(newValue)")
+        }
+
+        self.minimumValueLabel.text = String(newValue)
+        self.eventTableViewModelController?.minimumMagnitude = newValue
+        self.maximumStepper.minimumValue = newValue
     }
 
     @IBAction func maximumStepperValueChanged(_ sender: Any) {
-        print("maximum value: \(self.maximumStepper.value)")
+        var newValue = self.maximumStepper.value
+        print("newValue: \(newValue)")
+        if newValue <= self.minimumStepper.value {
+            newValue = self.minimumStepper.value + 1.0
+            self.maximumStepper.value = newValue
+            print("Changed newValue to \(newValue)")
+        }
+
+        self.maximumValueLabel.text = String(newValue)
+        self.eventTableViewModelController?.maximumMagnitude = newValue
+        self.minimumStepper.maximumValue = newValue
     }
 
 
     // ----------------------------------------------------------------------
     // MARK: - EventFilterTableViewCell Compliance
+}
+
+extension EventFilterMagnitudeTableViewCell: EventFilterTableViewCell {
+    func connect(with eventTableViewModelController: EventFilterTableViewModelController) {
+        self.eventTableViewModelController = eventTableViewModelController
+    }
 
     static var sectionTitle: String { return "Magnitude" }
     static var cellHeight: CGFloat { return 100 }

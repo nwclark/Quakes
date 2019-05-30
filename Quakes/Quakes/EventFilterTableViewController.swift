@@ -35,6 +35,8 @@ import UIKit
 /// Allows user to change event filters and control which events are shown on the map.
 class EventFilterTableViewController: UITableViewController {
 
+    fileprivate lazy var eventTableViewModelController = EventFilterTableViewModelController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNibs()
@@ -56,6 +58,7 @@ class EventFilterTableViewController: UITableViewController {
         let cellType = EventFilterTableViewController.Section.allCases[indexPath.section].cellType
         let identifier = cellType.identifier
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! EventFilterTableViewCell
+        cell.connect(with: self.eventTableViewModelController)
         // Configure the cell...
         return cell
     }
@@ -82,19 +85,22 @@ class EventFilterTableViewController: UITableViewController {
         let applyButton = UIBarButtonItem(title: "Apply", style: .plain, target: self,
                                           action: #selector(EventFilterTableViewController.saveAndExit))
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self,
-                                           action: #selector(EventFilterTableViewController.popToRoot))
+                                           action: #selector(EventFilterTableViewController.cancelChangesAndExit))
         self.navigationItem.leftBarButtonItem = applyButton
         self.navigationItem.rightBarButtonItem = cancelButton
         self.navigationItem.title = "Filters"
     }
 
     @objc fileprivate func saveAndExit() {
-//        EventFilter.shared().userMaximumMagnitude = self.magnitudeMaximumStepper.value
-//        EventFilter.shared().userMinimumMaginitude = self.magnitudeMinimumStepper.value
+        self.eventTableViewModelController.saveChanges()
         self.popToRoot()
     }
 
-    @objc fileprivate func popToRoot() {
+    @objc fileprivate func cancelChangesAndExit() {
+        self.popToRoot()
+    }
+
+    fileprivate func popToRoot() {
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
@@ -129,4 +135,6 @@ protocol EventFilterTableViewCell: UITableViewCell {
     static var sectionTitle: String { get }
     static var cellHeight: CGFloat { get }
     static var identifier: String { get }
+
+    func connect(with eventTableViewModelController: EventFilterTableViewModelController)
 }
