@@ -51,11 +51,6 @@ class MapViewModelController {
 
             if let response = response {
                 completionResponse = EventList(queryResponse: response)
-                let filteredEvents = completionResponse?.event?.filter({
-                    (seismicEvent) -> Bool in
-                    return EventFilter.shared().isIncluded(seismicEvent: seismicEvent)
-                })
-                completionResponse?.event = filteredEvents
             }
 
             completion(completionResponse, error)

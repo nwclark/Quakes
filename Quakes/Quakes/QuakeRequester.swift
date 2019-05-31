@@ -62,11 +62,7 @@ class QuakeRequester {
     func getLastDaysEvents(_ completion: @escaping (_ response: QueryResponse?, _ error: Error?) -> Void) {
         var queryParams = baseQueryItems
 
-        let endtime = Date()
-        let starttime = endtime - secondsInADay
-
-        queryParams.append(URLQueryItem(name: "starttime", value: dateFormatter.string(from: starttime)))
-        queryParams.append(URLQueryItem(name: "endtime", value: dateFormatter.string(from:endtime)))
+        queryParams += self.buildQueryParams()
 
         var urlComponents = URLComponents(string: queryEndpoint)
         urlComponents?.queryItems = queryParams
@@ -98,6 +94,33 @@ class QuakeRequester {
             }
         }
         dataTask.resume()
+    }
+
+    // ----------------------------------------------------------------------
+    // MARK: - Building Query Parameters
+
+    /// Creates request params from `EventFilter`
+    ///
+    /// - Returns: An array of `URLQueryItem`s
+    fileprivate func buildQueryParams() -> [URLQueryItem] {
+        return self.buildDateQueryParams() + self.buildMagnitudeQueryParms()
+    }
+
+    fileprivate func buildDateQueryParams() -> [URLQueryItem]  {
+        let endtime = Date()
+        let starttime = endtime - secondsInADay
+
+        let startParam = URLQueryItem(name: "starttime", value: dateFormatter.string(from: starttime))
+        let endParam = URLQueryItem(name: "endtime", value: dateFormatter.string(from:endtime))
+        return [startParam, endParam]
+    }
+
+    fileprivate func buildMagnitudeQueryParms() -> [URLQueryItem] {
+        let minimumMagnitude = EventFilter.shared().userMinimumMaginitude
+        let maximumMagnitude = EventFilter.shared().userMaximumMagnitude
+        let minQueryParam = URLQueryItem(name: "minmagnitude", value: String(minimumMagnitude))
+        let maxQueryParam = URLQueryItem(name: "maxmagnitude", value: String(maximumMagnitude))
+        return [minQueryParam, maxQueryParam]
     }
 }
 
