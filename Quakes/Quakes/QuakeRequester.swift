@@ -103,7 +103,7 @@ class QuakeRequester {
     ///
     /// - Returns: An array of `URLQueryItem`s
     fileprivate func buildQueryParams() -> [URLQueryItem] {
-        return self.buildDateQueryParams() + self.buildMagnitudeQueryParms()
+        return self.buildDateQueryParams() + self.buildMagnitudeQueryParms() + self.buildEventQueryParams()
     }
 
     fileprivate func buildDateQueryParams() -> [URLQueryItem]  {
@@ -121,6 +121,17 @@ class QuakeRequester {
         let minQueryParam = URLQueryItem(name: "minmagnitude", value: String(minimumMagnitude))
         let maxQueryParam = URLQueryItem(name: "maxmagnitude", value: String(maximumMagnitude))
         return [minQueryParam, maxQueryParam]
+    }
+
+    fileprivate func buildEventQueryParams() -> [URLQueryItem] {
+        let userEvents = EventFilter.shared().userEvents
+        let eventString = userEvents.map {
+            (event) -> String in
+            event.queryParamString
+        }.joined(separator: ",")
+
+        let eventQueryParam = URLQueryItem(name: "eventtype", value: eventString)
+        return [eventQueryParam]
     }
 }
 

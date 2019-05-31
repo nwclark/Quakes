@@ -57,6 +57,12 @@ class EventFilter {
     /// Default maximum magnitude to use if none is set in `UserDefaults`.
     private static let defaultUserMaximumMagnitude: Double = 10.0
 
+    /// `UserDefaults` key for `userEvents`.
+    private static let userEventsKey = "userEventsKey"
+
+    /// Default events to include in queries.
+    private static let defaultUserEvents: [EventType] = [.earthquake, .iceQuake, .quaryBlast]
+
     /// Hide init from outsiders.
     private init () { }
 
@@ -83,13 +89,23 @@ class EventFilter {
         }
     }
 
-    /// User-selected maximum magnitude
+    /// User-selected maximum magnitude.
     var userMaximumMagnitude: Double {
         get {
             return UserDefaults.standard.object(forKey: EventFilter.userMaximumMagnitudeKey) as? Double ?? EventFilter.defaultUserMaximumMagnitude
         }
         set {
             UserDefaults.standard.set(newValue, forKey: EventFilter.userMaximumMagnitudeKey)
+        }
+    }
+
+    /// User-selected events to include in query.
+    var userEvents: [EventType] {
+        get {
+            return UserDefaults.standard.object(forKey: EventFilter.userEventsKey) as? [EventType] ?? EventFilter.defaultUserEvents
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: EventFilter.userEventsKey)
         }
     }
 

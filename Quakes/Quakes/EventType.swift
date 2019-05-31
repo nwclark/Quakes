@@ -296,4 +296,64 @@ enum EventType : CustomStringConvertible {
             return UIColor.purple
         }
     }
+
+
+    /// The query parameter string representing this event type.
+    /// + TODO: These are undocumented guesses.
+    var queryParamString: String {
+        switch  self {
+        case .acousticNoise:
+            return "acoustic_noise,acoustic noise"
+        case .anthropogenicEvent:
+            return "anthropogenic_event"
+        case .buildingCollapse:
+            return "building_collapse"
+        case .chemicalExplosion:
+            return "chemical_explosion,chemical explosion"
+        case .collapse:
+            return "collapse"
+        case .earthquake:
+            return "earthquake,eq"
+        case .experimentalExplosion:
+            return "experimental_explosion,experimental explosion"
+        case .explosion:
+            return "explosion"
+        case .iceQuake:
+            return "ice_quake"
+        case .inducedEvent:
+            return "induced_event"
+        case .landslide:
+            return "landslide"
+        case .meteor:
+            return "meteor"
+        case .meteorite:
+            return "meteorite"
+        case .mineCollapse:
+            return "mine_collapse,mine collapse"
+        case .mineExplosion:
+            return "mining_explosion,mining explosion"
+        case .notReported:
+            return "not_reported,not reported"
+        case .nuclearExplosion:
+            return "nuclear_explosion,nuclear explosion"
+        case .other:
+            return "other_event,other event"
+        case .quaryBlast:
+            return "quarry,quarry_blast,quarry blast"
+        case .rockBurst:
+            return "rock_burst,rock burst"
+        case .rockSlide:
+            return "rock_slide,Rock Slide"
+        case .snowAvalanche:
+            return "snow_avalanche"
+        case .sonicBoom:
+            return "sonic_boom,sonic boom,sonicboom"
+        case .unknown:
+            return "unknown"
+        case .volcanicEruption:
+            return "volcanic_erruption"
+        case .volcanicExplosion:
+            return "volcanic_explostion"
+        }
+    }
 }
