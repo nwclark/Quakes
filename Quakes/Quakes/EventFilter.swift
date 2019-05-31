@@ -64,6 +64,19 @@ class EventFilter {
     private static let defaultUserEvents: [EventType] = [.earthquake, .iceQuake, .quaryBlast,
                                                          .landslide, .rockSlide, .snowAvalanche]
 
+    /// `UserDefaults` key for `userStartTime`.
+    private static let userStartTimeKey = "userStartTime"
+
+    /// `UserDefaults` key for `userEndTime`.
+    private static let userEndTimeKey = "userEndTime"
+
+    /// `UserDefaults` key for `userDateRange`.
+    private static let userDateRangeKey = "userDatesRange"
+
+    private static let userDefaultDateRange = false
+
+    private static let secondsInADay: TimeInterval = 24 * 60 * 60
+
     /// Hide init from outsiders.
     private init () { }
 
@@ -113,6 +126,45 @@ class EventFilter {
         set {
             let asData = newValue.map { $0.rawValue }
             UserDefaults.standard.set(asData, forKey: EventFilter.userEventsKey)
+        }
+    }
+
+    /// When set to `false`, the date range will be automatically generated to include the last 24 hours.
+    /// When set to `true`, the dates stored in `UserDefaults` will be used.
+    var userDateRange: Bool {
+        get {
+            return UserDefaults.standard.object(forKey: EventFilter.userDateRangeKey) as? Bool ?? EventFilter.userDefaultDateRange
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: EventFilter.userDateRangeKey)
+        }
+    }
+
+    /// User-selected search start time.
+    var userStartTime: Date {
+        get {
+            if self.userDateRange == true {
+                return UserDefaults.standard.object(forKey: EventFilter.userStartTimeKey) as? Date ?? Date() - EventFilter.secondsInADay
+            } else {
+                return Date() - EventFilter.secondsInADay
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: EventFilter.userStartTimeKey)
+        }
+    }
+
+    /// User-selected search end time.
+    var userEndTime: Date {
+        get {
+            if self.userDateRange == true {
+                return UserDefaults.standard.object(forKey: EventFilter.userEndTimeKey) as? Date ?? Date()
+            } else {
+                return Date()
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: EventFilter.userEndTimeKey)
         }
     }
 

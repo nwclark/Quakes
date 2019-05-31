@@ -45,7 +45,7 @@ class MapViewModelController {
     ///    - events: List of seismic events
     ///    - error: Errors, if any, from processing request.
     func getLatestEvents(_ completion: @escaping (_ events: EventList?, _ error: Error?) -> Void) {
-        quakeRequester.getLastDaysEvents {
+        quakeRequester.getEvents {
             response, error in
             var completionResponse: EventList?
 

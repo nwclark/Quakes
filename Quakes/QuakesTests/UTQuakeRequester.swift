@@ -51,7 +51,7 @@ class UTQuakeRequester: XCTestCase {
         let expectation = XCTestExpectation(description: #function)
 
         let quakeRequester = QuakeRequester()
-        quakeRequester.getLastDaysEvents {
+        quakeRequester.getEvents {
             response, error in
             XCTAssertNil(error)
             XCTAssertNotNil(response)

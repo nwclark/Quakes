@@ -44,7 +44,7 @@ class QuakeRequester {
 
     fileprivate let defaultSession = URLSession(configuration: .default)
 
-    fileprivate let secondsInADay: TimeInterval = 24 * 60 * 60
+    
 
     /// Formats dates to ISO8601 specs required by webservice.
     fileprivate let dateFormatter: ISO8601DateFormatter = {
@@ -59,10 +59,8 @@ class QuakeRequester {
     ///     - completion: completion handler
     ///     - response: response object from webservice
     ///     - error: errors encountered while processing request
-    func getLastDaysEvents(_ completion: @escaping (_ response: QueryResponse?, _ error: Error?) -> Void) {
-        var queryParams = baseQueryItems
-
-        queryParams += self.buildQueryParams()
+    func getEvents(_ completion: @escaping (_ response: QueryResponse?, _ error: Error?) -> Void) {
+         let queryParams = self.buildQueryParams()
 
         var urlComponents = URLComponents(string: queryEndpoint)
         urlComponents?.queryItems = queryParams
@@ -103,12 +101,15 @@ class QuakeRequester {
     ///
     /// - Returns: An array of `URLQueryItem`s
     fileprivate func buildQueryParams() -> [URLQueryItem] {
-        return self.buildDateQueryParams() + self.buildMagnitudeQueryParms() + self.buildEventQueryParams()
+        return self.baseQueryItems +
+            self.buildDateQueryParams() +
+            self.buildMagnitudeQueryParms() +
+            self.buildEventQueryParams()
     }
 
     fileprivate func buildDateQueryParams() -> [URLQueryItem]  {
-        let endtime = Date()
-        let starttime = endtime - secondsInADay
+        let endtime = EventFilter.shared().userEndTime
+        let starttime = EventFilter.shared().userStartTime
 
         let startParam = URLQueryItem(name: "starttime", value: dateFormatter.string(from: starttime))
         let endParam = URLQueryItem(name: "endtime", value: dateFormatter.string(from:endtime))
