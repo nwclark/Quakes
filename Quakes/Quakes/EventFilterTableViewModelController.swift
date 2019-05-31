@@ -34,15 +34,29 @@ import Foundation
 
 class EventFilterTableViewModelController {
 
+    /// Upper magnitude limit for user filters.
     let maximumAllowableMagnitude = EventFilter.maximumAllowableMagnitude
+
+    /// User-selected minimum magnitude.
     var userMinimumMagnitude = EventFilter.shared().userMinimumMaginitude
+
+    /// Lower magnitude limit for user filters.
     let minimumAllowableMagnitude = EventFilter.minimumAllowableMagnitude
+
+    /// User-selected maximum magnitude.
     var userMaximumMagnitude = EventFilter.shared().userMaximumMagnitude
+
+    /// User-selected event types.
+    var userEventTypes: [EventType] = EventFilter.shared().userEvents
+
+    /// All event types available for filtering.
+    let allEventTypes: [EventType] = EventType.allCases
 
     /// Write the current settings to the `EventFilter`.
     func saveChanges() {
         EventFilter.shared().userMaximumMagnitude = userMaximumMagnitude
         EventFilter.shared().userMinimumMaginitude = userMinimumMagnitude
+        EventFilter.shared().userEvents = userEventTypes
     }
 
 }

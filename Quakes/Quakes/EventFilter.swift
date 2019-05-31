@@ -61,7 +61,8 @@ class EventFilter {
     private static let userEventsKey = "userEventsKey"
 
     /// Default events to include in queries.
-    private static let defaultUserEvents: [EventType] = [.earthquake, .iceQuake, .quaryBlast]
+    private static let defaultUserEvents: [EventType] = [.earthquake, .iceQuake, .quaryBlast,
+                                                         .landslide, .rockSlide, .snowAvalanche]
 
     /// Hide init from outsiders.
     private init () { }
@@ -105,7 +106,7 @@ class EventFilter {
             return UserDefaults.standard.object(forKey: EventFilter.userEventsKey) as? [EventType] ?? EventFilter.defaultUserEvents
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: EventFilter.userEventsKey)
+            // TODO: UserDefaults.standard.set(newValue, forKey: EventFilter.userEventsKey)
         }
     }
 
@@ -120,15 +121,15 @@ class EventFilter {
     ///
     /// - Parameter seismicEvent: The event to test.
     /// - Returns: `true` if the event should be included, `false` if not.
-    func isIncluded(seismicEvent: SeismicEvent) -> Bool {
-        guard let magnitude = seismicEvent.magnitude else {
-            return false
-        }
-
-        if magnitude <= userMaximumMagnitude && magnitude >= userMinimumMaginitude {
-            return true
-        }
-
-        return false
-    }
+//    func isIncluded(seismicEvent: SeismicEvent) -> Bool {
+//        guard let magnitude = seismicEvent.magnitude else {
+//            return false
+//        }
+//
+//        if magnitude <= userMaximumMagnitude && magnitude >= userMinimumMaginitude {
+//            return true
+//        }
+//
+//        return false
+//    }
 }

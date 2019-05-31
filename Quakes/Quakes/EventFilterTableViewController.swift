@@ -58,7 +58,7 @@ class EventFilterTableViewController: UITableViewController {
         let cellType = EventFilterTableViewController.Section.allCases[indexPath.section].cellType
         let identifier = cellType.identifier
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! EventFilterTableViewCell
-        cell.connect(with: self.eventTableViewModelController)
+        cell.connect(with: self.eventTableViewModelController, for: indexPath)
         // Configure the cell...
         return cell
     }
@@ -109,11 +109,14 @@ extension  EventFilterTableViewController {
     /// Maps the table view section to the corresponding event filter type.
     enum Section : CaseIterable {
         case magnitude
+        case eventType
 
         var rows: Int {
             switch self {
             case .magnitude:
                 return 1
+            case .eventType:
+                return EventType.allCases.count
             }
         }
 
@@ -123,6 +126,9 @@ extension  EventFilterTableViewController {
             switch self {
             case .magnitude:
                 return EventFilterMagnitudeTableViewCell.self
+
+            case .eventType:
+                return EventFilterTypeTableViewCell.self
             }
         }
     }
@@ -136,5 +142,5 @@ protocol EventFilterTableViewCell: UITableViewCell {
     static var cellHeight: CGFloat { get }
     static var identifier: String { get }
 
-    func connect(with eventTableViewModelController: EventFilterTableViewModelController)
+    func connect(with eventTableViewModelController: EventFilterTableViewModelController, for indexPath: IndexPath)
 }

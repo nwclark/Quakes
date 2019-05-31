@@ -62,7 +62,7 @@ import UIKit
 /// - volcanicEruption:
 /// - volcanicExplosion:
 /// - earthquake:
-enum EventType : CustomStringConvertible {
+enum EventType : CustomStringConvertible, CaseIterable {
     case acousticNoise
     case anthropogenicEvent
     case buildingCollapse

@@ -119,14 +119,13 @@ class EventFilterMagnitudeTableViewCell: UITableViewCell {
         modelController.userMaximumMagnitude = newValue
         self.minimumStepper.maximumValue = newValue
     }
-
+}
 
     // ----------------------------------------------------------------------
     // MARK: - EventFilterTableViewCell Compliance
-}
 
 extension EventFilterMagnitudeTableViewCell: EventFilterTableViewCell {
-    func connect(with eventTableViewModelController: EventFilterTableViewModelController) {
+    func connect(with eventTableViewModelController: EventFilterTableViewModelController, for indexPath: IndexPath) {
         self.eventTableViewModelController = eventTableViewModelController
         self.initializeUI()
     }
