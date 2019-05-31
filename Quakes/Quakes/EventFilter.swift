@@ -104,7 +104,7 @@ class EventFilter {
     ///
     /// - Parameter seismicEvent: The event to test.
     /// - Returns: `true` if the event should be included, `false` if not.
-    func isIncluded(seismicEvent: MapViewModelController.SeismicEvent) -> Bool {
+    func isIncluded(seismicEvent: SeismicEvent) -> Bool {
         guard let magnitude = seismicEvent.magnitude else {
             return false
         }

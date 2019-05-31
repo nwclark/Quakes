@@ -109,7 +109,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         /// Deselect the annotation and show the popover with details.
         mapView.deselectAnnotation(view.annotation!, animated: true)
-        if let event = view.annotation as? MapViewModelController.SeismicEvent {
+        if let event = view.annotation as? SeismicEvent {
             let eventPopoverVC = EventPopoverViewController()
             eventPopoverVC.preferredContentSize = MapViewController.eventPopoverContentSize
             eventPopoverVC.modalPresentationStyle = .popover
@@ -138,7 +138,7 @@ extension MapViewController: MKMapViewDelegate {
     /// - Returns: The `MKAnnotationView` that should be placed on the map.
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseIdentifier = "EventAnnotation"
-        if let event = annotation as? MapViewModelController.SeismicEvent {
+        if let event = annotation as? SeismicEvent {
 
             let annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             let markerImage = event.mapMarkerImage

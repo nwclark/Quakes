@@ -55,11 +55,11 @@ class EventPopoverViewController: UIViewController {
 
 
     /// Backing store for the `event` property.
-    fileprivate var _event: MapViewModelController.SeismicEvent?
+    fileprivate var _event: SeismicEvent?
 
     /// `SeismicEvent` containing information for the popover.
     /// Setting this value has the effect of updating the display.
-    var event: MapViewModelController.SeismicEvent? {
+    var event: SeismicEvent? {
         get {
             return _event
         }
