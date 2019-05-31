@@ -110,13 +110,18 @@ extension  EventFilterTableViewController {
     enum Section : CaseIterable {
         case magnitude
         case eventType
+        case date
 
         var rows: Int {
             switch self {
             case .magnitude:
                 return 1
+
             case .eventType:
                 return EventType.allCases.count
+                
+            case .date:
+                return 1
             }
         }
 
@@ -129,6 +134,9 @@ extension  EventFilterTableViewController {
 
             case .eventType:
                 return EventFilterTypeTableViewCell.self
+
+            case .date:
+                return  EventFilterDateTableViewCell.self
             }
         }
     }

@@ -11,6 +11,8 @@
 		C70861B9229F11E300BEF9BB /* EventFilterMagnitudeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70861B7229F11E300BEF9BB /* EventFilterMagnitudeTableViewCell.swift */; };
 		C70861BA229F11E300BEF9BB /* EventFilterMagnitudeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70861B8229F11E300BEF9BB /* EventFilterMagnitudeTableViewCell.xib */; };
 		C70861BC229F63FB00BEF9BB /* EventFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70861BB229F63FB00BEF9BB /* EventFilterTableViewController.swift */; };
+		C70F3C3122A1B7EF009B935F /* EventFilterDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70F3C2F22A1B7EF009B935F /* EventFilterDateTableViewCell.swift */; };
+		C70F3C3222A1B7EF009B935F /* EventFilterDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70F3C3022A1B7EF009B935F /* EventFilterDateTableViewCell.xib */; };
 		C74DC36A228B3080004582D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DC369228B3080004582D3 /* AppDelegate.swift */; };
 		C74DC371228B3081004582D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C74DC370228B3081004582D3 /* Assets.xcassets */; };
 		C74DC374228B3081004582D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74DC372228B3081004582D3 /* LaunchScreen.storyboard */; };
@@ -55,6 +57,8 @@
 		C70861B7229F11E300BEF9BB /* EventFilterMagnitudeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterMagnitudeTableViewCell.swift; sourceTree = "<group>"; };
 		C70861B8229F11E300BEF9BB /* EventFilterMagnitudeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventFilterMagnitudeTableViewCell.xib; sourceTree = "<group>"; };
 		C70861BB229F63FB00BEF9BB /* EventFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterTableViewController.swift; sourceTree = "<group>"; };
+		C70F3C2F22A1B7EF009B935F /* EventFilterDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterDateTableViewCell.swift; sourceTree = "<group>"; };
+		C70F3C3022A1B7EF009B935F /* EventFilterDateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventFilterDateTableViewCell.xib; sourceTree = "<group>"; };
 		C74AADA922909E2E00E2B8B4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C74DC366228B3080004582D3 /* Quakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quakes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74DC369228B3080004582D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				C7DE2279228E4A5000EDA0AB /* EventPopoverViewController.swift */,
 				C7DE227A228E4A5000EDA0AB /* EventPopoverViewController.xib */,
 				C74E35262295A0E800D955A9 /* EventFilter.swift */,
+				C70F3C2F22A1B7EF009B935F /* EventFilterDateTableViewCell.swift */,
+				C70F3C3022A1B7EF009B935F /* EventFilterDateTableViewCell.xib */,
 				C70861BB229F63FB00BEF9BB /* EventFilterTableViewController.swift */,
 				C70861B5229F111500BEF9BB /* EventFilterTableViewController.storyboard */,
 				C70861B7229F11E300BEF9BB /* EventFilterMagnitudeTableViewCell.swift */,
@@ -297,6 +303,7 @@
 				C74DC374228B3081004582D3 /* LaunchScreen.storyboard in Resources */,
 				C70861BA229F11E300BEF9BB /* EventFilterMagnitudeTableViewCell.xib in Resources */,
 				C74DC371228B3081004582D3 /* Assets.xcassets in Resources */,
+				C70F3C3222A1B7EF009B935F /* EventFilterDateTableViewCell.xib in Resources */,
 				C7B453E2228CC45C00C5755C /* MapView.storyboard in Resources */,
 				C70861B6229F111500BEF9BB /* EventFilterTableViewController.storyboard in Resources */,
 				C789CC8622A187700038FF56 /* EventFilterTypeTableViewCell.xib in Resources */,
@@ -335,6 +342,7 @@
 				C7837E8222A160DC00B4C11E /* EventType.swift in Sources */,
 				C7654E47228B329B00ED174E /* QuakeRequester.swift in Sources */,
 				C7B453E4228CC48200C5755C /* MapViewController.swift in Sources */,
+				C70F3C3122A1B7EF009B935F /* EventFilterDateTableViewCell.swift in Sources */,
 				C7837E8422A1617900B4C11E /* EventLocation.swift in Sources */,
 				C70861BC229F63FB00BEF9BB /* EventFilterTableViewController.swift in Sources */,
 				C70861B9229F11E300BEF9BB /* EventFilterMagnitudeTableViewCell.swift in Sources */,
