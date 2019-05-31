@@ -62,33 +62,33 @@ import UIKit
 /// - volcanicEruption:
 /// - volcanicExplosion:
 /// - earthquake:
-enum EventType : CustomStringConvertible, CaseIterable {
-    case acousticNoise
-    case anthropogenicEvent
-    case buildingCollapse
-    case chemicalExplosion
-    case collapse
-    case earthquake
-    case experimentalExplosion
-    case explosion
-    case iceQuake
-    case inducedEvent
-    case landslide
-    case meteor
-    case meteorite
-    case mineCollapse
-    case mineExplosion
-    case notReported
-    case nuclearExplosion
-    case other
-    case quaryBlast
-    case rockBurst
-    case rockSlide
-    case snowAvalanche
-    case sonicBoom
-    case unknown
-    case volcanicEruption
-    case volcanicExplosion
+enum EventType : Int, CustomStringConvertible, CaseIterable {
+    case acousticNoise          = 0
+    case anthropogenicEvent     = 1
+    case buildingCollapse       = 2
+    case chemicalExplosion      = 3
+    case collapse               = 4
+    case earthquake             = 5
+    case experimentalExplosion  = 6
+    case explosion              = 7
+    case iceQuake               = 8
+    case inducedEvent           = 9
+    case landslide              = 10
+    case meteor                 = 11
+    case meteorite              = 12
+    case mineCollapse           = 13
+    case mineExplosion          = 14
+    case notReported            = 15
+    case nuclearExplosion       = 16
+    case other                  = 17
+    case quaryBlast             = 18
+    case rockBurst              = 19
+    case rockSlide              = 20
+    case snowAvalanche          = 21
+    case sonicBoom              = 22
+    case unknown                = 23
+    case volcanicEruption       = 24
+    case volcanicExplosion      = 25
 
 
     /// Translates the event type from strings returned by the webservice to
