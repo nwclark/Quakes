@@ -36,6 +36,7 @@ import MapKit
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
 
     /// Model controller associated with this view.
     lazy var modelController = MapViewModelController()
@@ -46,8 +47,9 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initializeNavBar()
-        initializeMapView()
+        self.initializeNavBar()
+        self.initializeMapView()
+        self.initializeSpinner()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -69,13 +71,22 @@ class MapViewController: UIViewController {
         self.navigationItem.title = "Seismic Events"
     }
 
+    fileprivate func initializeSpinner() {
+        if let spinner = self.activitySpinner {
+            spinner.hidesWhenStopped = true
+            spinner.stopAnimating()
+        }
+    }
+
     /// Fetch events from the webservice and display on map.
     fileprivate func getEvents() {
+        self.activitySpinner.startAnimating()
         modelController.getLatestEvents {
             (events, error) in
-            if let quakes = events?.event {
-                print("Adding \(quakes.count) events")
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                self.activitySpinner.stopAnimating()
+                if let quakes = events?.event {
+                    print("Adding \(quakes.count) events")
                     self.mapView.removeAnnotations(self.mapView.annotations)
                     self.mapView.addAnnotations(quakes)
                 }

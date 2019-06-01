@@ -21,18 +21,24 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VLD-iU-5Ql">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uSs-nb-jLT">
+                                <rect key="frame" x="197" y="465" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8ub-VX-1m9" firstAttribute="trailing" secondItem="VLD-iU-5Ql" secondAttribute="trailing" id="Clg-ht-4Xn"/>
+                            <constraint firstItem="uSs-nb-jLT" firstAttribute="centerY" secondItem="VLD-iU-5Ql" secondAttribute="centerY" id="Duo-eL-LEa"/>
                             <constraint firstItem="VLD-iU-5Ql" firstAttribute="top" secondItem="8ub-VX-1m9" secondAttribute="top" id="KUk-AQ-5HR"/>
                             <constraint firstItem="VLD-iU-5Ql" firstAttribute="leading" secondItem="8ub-VX-1m9" secondAttribute="leading" id="VQh-ht-Okd"/>
+                            <constraint firstItem="uSs-nb-jLT" firstAttribute="centerX" secondItem="VLD-iU-5Ql" secondAttribute="centerX" id="mHj-yc-fgH"/>
                             <constraint firstItem="8ub-VX-1m9" firstAttribute="bottom" secondItem="VLD-iU-5Ql" secondAttribute="bottom" id="pbZ-Bq-FG0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8ub-VX-1m9"/>
                     </view>
                     <navigationItem key="navigationItem" id="yKm-R3-Ryj"/>
                     <connections>
+                        <outlet property="activitySpinner" destination="uSs-nb-jLT" id="8Jm-yz-UJh"/>
                         <outlet property="mapView" destination="VLD-iU-5Ql" id="ofe-ys-ibT"/>
                     </connections>
                 </viewController>
